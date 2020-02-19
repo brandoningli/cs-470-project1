@@ -28,7 +28,7 @@ public class UDPServer {
       System.exit(-1);
     }
 
-    System.out.println("[SERVER] Got request from " + request.getAddress() + ":" + request.getPort());
+    System.out.println("[SERVER] Got request from " + request.getAddress().getHostAddress() + ":" + request.getPort());
 
     Message toSend = new Message(1, "Hello, there!");
     
@@ -55,7 +55,7 @@ public class UDPServer {
       System.exit(-1);
     }
     
-    System.out.println("[SERVER] Sent response to " + request.getAddress() + ":" + request.getPort());
+    System.out.println("[SERVER] Sent response to " + request.getAddress().getHostAddress() + ":" + request.getPort());
 
     socket.close();
     
