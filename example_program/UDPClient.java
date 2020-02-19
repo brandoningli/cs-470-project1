@@ -40,7 +40,7 @@ public class UDPClient {
     }
     System.out.println("[CLIENT] Sent request to " + hostname + ":" + portNo);
 
-    byte[] buffer2 = new byte[65535];
+    byte[] buffer2 = new byte[65508];
 
     DatagramPacket response = new DatagramPacket(buffer2, buffer2.length);
     try {
