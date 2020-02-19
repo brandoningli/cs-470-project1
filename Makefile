@@ -7,9 +7,7 @@ exampleClient: exampleprogram/Message.class exampleprogram/UDPClient.class
 	java exampleprogram.UDPClient
 exampleClientJar: exampleprogram/Message.class exampleprogram/UDPClient.class
 	jar cfe jars/exampleClient.jar exampleprogram.UDPClient exampleprogram/UDPClient.class exampleprogram/Message.class
-exampleprogram/Message.class: exampleprogram/Message.java
-	javac exampleprogram/Message.java
-exampleprogram/UDPServer.class: exampleprogram/UDPServer.java
-	javac exampleprogram/UDPServer.java
-exampleprogram/UDPClient.class: exampleprogram/UDPClient.java
-	javac exampleprogram/UDPClient.java
+
+## Generic Pattern Rules
+%.class: %.java
+	javac $<
