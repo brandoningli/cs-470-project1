@@ -1,4 +1,6 @@
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -38,7 +40,9 @@ public class UDPClient {
     }
     System.out.println("[CLIENT] Sent request to " + hostname + ":" + portNo);
 
-    DatagramPacket response = new DatagramPacket(buffer, buffer.length);
+    byte[] buffer2 = new byte[65535];
+
+    DatagramPacket response = new DatagramPacket(buffer2, buffer2.length);
     try {
       socket.receive(response);
     } catch (IOException e) {
@@ -46,7 +50,20 @@ public class UDPClient {
       System.exit(-1);
     }
 
-    String responseData = new String(buffer);
+    // Deserialize the response
+    ObjectInputStream iStream;
+    Message responseMessage = null;
+    try {
+      iStream = new ObjectInputStream(new ByteArrayInputStream(buffer2));
+      responseMessage = (Message) iStream.readObject();
+      iStream.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.exit(-1);
+    } 
+    
+
+    String responseData = responseMessage.toString();
 
     System.out.println("[CLIENT] Received response from " + hostname + ":" + portNo + " - " + responseData);
 

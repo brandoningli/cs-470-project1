@@ -1,4 +1,7 @@
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
@@ -27,10 +30,23 @@ public class UDPServer {
 
     System.out.println("[SERVER] Got request from " + request.getAddress() + ":" + request.getPort());
 
-    String data = "Hello!";
-    buffer = data.getBytes();
+    Message toSend = new Message(1, "Hello, there!");
+    
+    // Serialize to a byte array
+    ByteArrayOutputStream bStream = new ByteArrayOutputStream();
+    ObjectOutput oo;
+    try {
+      oo = new ObjectOutputStream(bStream);
+      oo.writeObject(toSend);
+      oo.close();
+    } catch (IOException e1) {
+      e1.printStackTrace();
+      System.exit(-1);
+    }
 
-    DatagramPacket response = new DatagramPacket(buffer, buffer.length, request.getAddress(), request.getPort());
+    byte[] buffer2 = bStream.toByteArray();
+
+    DatagramPacket response = new DatagramPacket(buffer2, buffer2.length, request.getAddress(), request.getPort());
 
     try {
       socket.send(response);
@@ -39,7 +55,7 @@ public class UDPServer {
       System.exit(-1);
     }
     
-    System.out.println("[SERVER] Set response to " + request.getAddress() + ":" + request.getPort());
+    System.out.println("[SERVER] Sent response to " + request.getAddress() + ":" + request.getPort());
 
     socket.close();
     
