@@ -81,6 +81,7 @@
         + Only values are needed; Keys are the IP address, which is also in the `Heartbeat`
     + Send to all IP addresses but this machine
     + Wait [1,`sharedData.getMaxWait()`] random seconds
++ Should return (die) whenever `Thread.interrupt()` is called.
 
 ## HeartbeatDriverClientServer
 + Sets up shared memory and threads for a client server operation
