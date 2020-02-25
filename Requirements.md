@@ -1,5 +1,7 @@
 # Requirements for `lb4theartbeat`
 
+**NOTE:** Include a `toString()` for every class.
+
 ## HeartbeatPacket
 + Contains the following fields
     + version number (can use `serialVersionUID` that `Serializable` requires)
