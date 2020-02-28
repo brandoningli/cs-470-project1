@@ -18,6 +18,7 @@ public class HeartbeatSharedData {
   private int TTL;
   private int TTLMultiplier;
   private boolean isServer;
+  private int port;
 
 
   /**
@@ -30,8 +31,9 @@ public class HeartbeatSharedData {
    * @param TTL
    * @param TTLMultiplier
    * @param isServer
+   * @param port
    */
-  public HeartbeatSharedData(DatagramSocket socket, ArrayList<String> ipList, ArrayList<String> serverList, String IP, Hashtable<String,Heartbeat> heartHash, int TTL, int TTLMultiplier, Boolean isServer) {
+  public HeartbeatSharedData(DatagramSocket socket, ArrayList<String> ipList, ArrayList<String> serverList, String IP, Hashtable<String,Heartbeat> heartHash, int TTL, int TTLMultiplier, Boolean isServer,int port) {
     this.socket = socket;
     this.ipList = ipList;
     this.serverList = serverList;
@@ -40,6 +42,7 @@ public class HeartbeatSharedData {
     this.TTL = TTL;
     this.TTLMultiplier = TTLMultiplier;
     this.isServer = isServer;
+    this.port = port;
   }
   
 
@@ -163,6 +166,21 @@ public class HeartbeatSharedData {
    */
   public void setIsServer(boolean isServer) {
     this.isServer = isServer;
+  }
+   /**
+   * Gets the port
+   * @return port
+   */
+  public int getPort() {
+    return this.port;
+  }
+
+  /**
+   * Sets the port
+   * @param port
+   */
+  public void setPort(int port) {
+    this.port = port;
   }
   /**
    * Gets the max wait time until another Heartbeat is expected
