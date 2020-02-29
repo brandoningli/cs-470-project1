@@ -1,6 +1,12 @@
 package lb4theartbeat;
 import java.util.ArrayList;
 import java.util.Date;
+
+/**
+ * Prints out the heartbeats in the local cache in human readable format
+ * @author Brandon Ingli 2020
+ * @version 1.0
+ */
 public class HeartbeatStatusPrinter implements Runnable{
 
   private HeartbeatSharedData sharedData;
