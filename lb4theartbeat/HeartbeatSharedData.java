@@ -218,7 +218,7 @@ public class HeartbeatSharedData {
   public String toString() {
     return "{" +
       " socket='" + getSocket() + "'" +
-      ", ipList='" + getIpList() + "'" +
+      ", ipList='" + getIPList() + "'" +
       ", serverList='" + getServerList() + "'" +
       ", IP='" + getIP() + "'" +
       ", heartHash='" + getHeartHash() + "'" +
