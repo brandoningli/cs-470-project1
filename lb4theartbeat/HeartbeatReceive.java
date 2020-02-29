@@ -4,6 +4,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
 
+/**
+ * @author Dylan Toombs
+ * @version 29th February 2020
+ */
 public class HeartbeatReceive implements Runnable{
 
   private HeartbeatSharedData data;
@@ -49,7 +53,7 @@ public class HeartbeatReceive implements Runnable{
           data.setIsServer(false);
           t.interrupt();
         }  
-              
+
       } catch (Exception e) {
         System.err.print("[HeartbeatReceive]");
         e.printStackTrace();
