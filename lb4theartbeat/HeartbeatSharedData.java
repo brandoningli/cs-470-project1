@@ -19,6 +19,7 @@ public class HeartbeatSharedData {
   private int TTLMultiplier;
   private boolean isServer;
   private int port;
+  private boolean isClientServerMode;
 
 
   /**
@@ -32,8 +33,9 @@ public class HeartbeatSharedData {
    * @param TTLMultiplier
    * @param isServer
    * @param port
+   * @param isClientServerMode
    */
-  public HeartbeatSharedData(DatagramSocket socket, ArrayList<String> ipList, ArrayList<String> serverList, String IP, Hashtable<String,Heartbeat> heartHash, int TTL, int TTLMultiplier, Boolean isServer,int port) {
+  public HeartbeatSharedData(DatagramSocket socket, ArrayList<String> ipList, ArrayList<String> serverList, String IP, Hashtable<String,Heartbeat> heartHash, int TTL, int TTLMultiplier, boolean isServer, int port, boolean isClientServerMode) {
     this.socket = socket;
     this.ipList = ipList;
     this.serverList = serverList;
@@ -43,6 +45,7 @@ public class HeartbeatSharedData {
     this.TTLMultiplier = TTLMultiplier;
     this.isServer = isServer;
     this.port = port;
+    this.isClientServerMode = isClientServerMode;
   }
   
 
@@ -190,22 +193,42 @@ public class HeartbeatSharedData {
   {
     return TTL - 1;
   }
+
+  /**
+   * Gets if this is in client server mode
+   * @return True if C/S, False if P2P
+   */
+  public boolean isClientServerMode(){
+    return this.isClientServerMode();
+  }
+
+  /**
+   * Sets/Clears the Client/Server mode flag
+   */
+  public void setClientServerMode(boolean csm){
+    this.isClientServerMode = csm;
+  }
   
   /**
    * String representation of HeartbeatSharedData
    * @return a String of HeartbeatSharedData
    */
+
+  @Override
   public String toString() {
     return "{" +
       " socket='" + getSocket() + "'" +
-      ", ipList='" + getIPList() + "'" +
+      ", ipList='" + getIpList() + "'" +
       ", serverList='" + getServerList() + "'" +
       ", IP='" + getIP() + "'" +
       ", heartHash='" + getHeartHash() + "'" +
       ", TTL='" + getTTL() + "'" +
       ", TTLMultiplier='" + getTTLMultiplier() + "'" +
       ", isServer='" + isServer() + "'" +
+      ", port='" + getPort() + "'" +
+      ", isClientServerMode='" + isClientServerMode() + "'" +
       "}";
   }
+  
 
 }
