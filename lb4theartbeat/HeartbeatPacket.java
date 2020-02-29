@@ -21,7 +21,7 @@ public class HeartbeatPacket implements Serializable{
 
   public HeartbeatPacket(boolean isClientServer, String senderIP, ArrayList<Heartbeat> heartbeats){
     this.isClientServer = isClientServer;
-    this.isSummary = (heartbeats.size() <= 1);
+    this.isSummary = (heartbeats.size() > 1);
     this.senderIP = senderIP;
     this.heartbeats = heartbeats;
   }
