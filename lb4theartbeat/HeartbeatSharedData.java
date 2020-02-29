@@ -199,14 +199,14 @@ public class HeartbeatSharedData {
    * @return True if C/S, False if P2P
    */
   public boolean isClientServerMode(){
-    return this.isClientServerMode();
+    return isClientServerMode;
   }
 
   /**
    * Sets/Clears the Client/Server mode flag
    */
   public void setClientServerMode(boolean csm){
-    this.isClientServerMode = csm;
+    isClientServerMode = csm;
   }
   
   /**
@@ -218,7 +218,7 @@ public class HeartbeatSharedData {
   public String toString() {
     return "{" +
       " socket='" + getSocket() + "'" +
-      ", ipList='" + getIpList() + "'" +
+      ", ipList='" + getIPList() + "'" +
       ", serverList='" + getServerList() + "'" +
       ", IP='" + getIP() + "'" +
       ", heartHash='" + getHeartHash() + "'" +
