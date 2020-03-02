@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 /**
  * Driver for a Client Server implementation of the heartbeat protocol
+ * NOTE: Please start the primary server first from a cold system-wide start
  * @author Brandon Ingli
  * @version 29 Feb 2020
  */
@@ -76,7 +77,7 @@ public class HeartbeatDriverClientServer{
     Heartbeat thisMachine = new Heartbeat(
       nid.getIp(), // This machine's IP
       0, // Beat number
-      TTL,
+      TTL + 2, // to account for processing time
       data.getMaxWait() // Time until next beat expected
     );
     localCache.put(nid.getIp(), thisMachine);
