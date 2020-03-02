@@ -77,7 +77,7 @@ public class HeartbeatDriverClientServer{
     Heartbeat thisMachine = new Heartbeat(
       nid.getIp(), // This machine's IP
       0, // Beat number
-      TTL + 2, // to account for processing time
+      TTL * TTL_MULTIPLIER, // as if this were the server.
       data.getMaxWait() // Time until next beat expected
     );
     localCache.put(nid.getIp(), thisMachine);
