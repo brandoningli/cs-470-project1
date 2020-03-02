@@ -80,7 +80,7 @@
         + See [this in the JDK](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html#values--) and [this solution](https://www.javacodeexamples.com/convert-hashtable-to-arraylist-in-java-example/3181) for inspiration; `ArrayList` is a `Collection`
         + Only values are needed; Keys are the IP address, which is also in the `Heartbeat`
     + Send to all IP addresses but this machine
-    + Wait [1,`sharedData.getMaxWait()`] random seconds
+    + Wait [1,`sharedData.getMaxWait()/2`] random seconds
 + Should return (die) whenever `Thread.interrupt()` is called.
 
 ## HeartbeatDriverClientServer
