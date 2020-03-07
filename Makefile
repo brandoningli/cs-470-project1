@@ -11,7 +11,7 @@ peerToPeer: lb4theartbeat/HeartbeatDriverP2P.class lb4theartbeat/HeartbeatShared
 
 peerToPeerJar: lb4theartbeat/HeartbeatDriverP2P.class lb4theartbeat/HeartbeatSharedData.class lb4theartbeat/Heartbeat.class lb4theartbeat/HeartbeatPacket.class lb4theartbeat/HearbeatReceive.class lb4theartbeat/HeartbeatSend.class lb4theartbeat/HeartbeatStatusPrinter.class lb4theartbeat/HeartbeatSummarySend.class
 	mkdir -p jars
-	jar cfe jars/lb4theartbeatClientServer.jar lb4theartbeat.HeartbeatDriverP2P lb4theartbeat/HeartbeatDriverP2P.class lb4theartbeat/Heartbeat.class lb4theartbeat/HeartbeatPacket.class lb4theartbeat/HearbeatReceive.class lb4theartbeat/HeartbeatSend.class lb4theartbeat/HeartbeatStatusPrinter.class lb4theartbeat/HeartbeatSummarySend.class
+	jar cfe jars/lb4theartbeatP2P.jar lb4theartbeat.HeartbeatDriverP2P lb4theartbeat/HeartbeatDriverP2P.class lb4theartbeat/Heartbeat.class lb4theartbeat/HeartbeatPacket.class lb4theartbeat/HearbeatReceive.class lb4theartbeat/HeartbeatSend.class lb4theartbeat/HeartbeatStatusPrinter.class lb4theartbeat/HeartbeatSummarySend.class
 
 ## For exampleprogram
 exampleServer: exampleprogram/Message.class exampleprogram/UDPServer.class
