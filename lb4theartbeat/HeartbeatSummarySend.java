@@ -55,7 +55,7 @@ public class HeartbeatSummarySend implements Runnable {
       // Wait to send the next one
       try {
         Thread.sleep(waitTime() * 1000); 
-        waitTime();
+        
       } catch (InterruptedException e) {
         // The thread was interrupted while asleep. Just return.
         return;
