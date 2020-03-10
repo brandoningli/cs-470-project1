@@ -27,7 +27,7 @@ public class HeartbeatStatusPrinter implements Runnable{
       System.out.println();
 
       try{
-        Thread.sleep(sharedData.getMaxWait()*1000);
+        Thread.sleep(sharedData.getMaxWait()/3*1000);
       } catch (InterruptedException e){
         break;
       }

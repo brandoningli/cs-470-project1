@@ -136,6 +136,13 @@ public class HeartbeatSharedData {
     }
   }
   /**
+   * Gets the base TTL value
+   * @return bast TTL in number of seconds
+   */
+  public int getBaseTTL(){
+    return this.TTL;
+  }
+  /**
    * Sets TTL
    * @param TTL
    */
