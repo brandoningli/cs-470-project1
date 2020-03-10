@@ -36,6 +36,9 @@ public class HeartbeatSend implements Runnable{
       beats.add(beat);
       HeartbeatPacket packet = new HeartbeatPacket(data.isClientServerMode(), data.getIP(), beats);
 
+      // Update our local cache with this beat so we know we're stayin' alive
+      data.getHeartHash().put(data.getIP(), beat);
+
       // Determine the highest priority alive server
       String serverIP = data.getServerList().get(data.getServerList().size() - 1);
       for(String ip : data.getServerList()){
