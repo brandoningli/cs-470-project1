@@ -1,13 +1,43 @@
+Protocol Design:
 In client-server mode, a list of IP addresses are provided with server
 priority from top to bottom. The designated "server" sends a summary packet
 containing all known clients heartbeats including its own. This server is
 designated with a set flag. Once the server dies, the next client on the IP
 list knows to become the new server because it stops receiving the summary
-packet and starts receiving individual beats from other nodes. Every client waits from 0 to 30 seconds and then they send their
-heartbeat to the server. Every client has a 30 second TTL while the current
-server has a TTL of 90 seconds.
+packet and starts receiving individual beats from other nodes. Every client
+waits from 0 to 30 seconds and then they send their heartbeat to the server.
+Every client has a 30 second TTL while the current server has a TTL of
+90 seconds.
 
-In peer-to-peer mode, every client just sends all their known heartbeats, including their own, to every
-other client in the list of IP addresses. Again, this is done every 0 to 30
-seconds. After 30 seconds of not receiving a packet from another client the
-given client is considered dead.
+In peer-to-peer mode, every client just sends all their known heartbeats,
+including their own, to every other client in the list of IP addresses. Again,
+this is done every 0 to 30 seconds. After 30 seconds of not receiving a packet
+from another client the given client is considered dead.
+
+(See projectProtocolDesign.png for visual representation of packet.)
+
+Why We Believe The Design Is Good:
+We feel this is the most optimal design because in client-server it creates a
+hierarchy of the devices allowing a long line of fail-safes for the primary
+server. Furthermore, in peer-to-peer, since every client holds a list of known
+heartbeats there is always redundancy in place to prevent the loss of any
+data should a client disconnect from the network.
+
+Team Contributions:
+Brandon thought up the core design of the protocol and met with Chase and
+Dylan to make the first draft official. Brandon took the position of team
+leader and delegated the projects different java classes to Chase and Dylan.
+
+Classes Written by Brandon Ingli - HeartbeatStatusPrinter, NIDriver,
+                                   HeartbeatPacket, Heartbeat, HeartbeatSend
+Classes Written by Chase Anderson - HeartbeatSharedData, HeartbeatSummarySend
+Classes Written by Dylan Toombs - HeartbeatReceive, ProjectDescription
+
+After all classes were completed the whole team sat down in a video call to
+observe the testing of the protocol to ensure everything ran properly.
+
+The entire development process is well documented in the github project. A
+complete set of project cards and descriptions are available on the site.
+
+How To Run The Code:
+
