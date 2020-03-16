@@ -3,7 +3,7 @@ priority from top to bottom. The designated "server" sends a summary packet
 containing all known clients heartbeats including its own. This server is
 designated with a set flag. Once the server dies, the next client on the IP
 list knows to become the new server because it stops receiving the summary
-packet. Every client waits from 0 to 30 seconds and then they send their
+packet and starts receiving individual beats from other nodes. Every client waits from 0 to 30 seconds and then they send their
 heartbeat to the server. Every client has a 30 second TTL while the current
 server has a TTL of 90 seconds.
 
