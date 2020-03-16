@@ -7,7 +7,7 @@ packet. Every client waits from 0 to 30 seconds and then they send their
 heartbeat to the server. Every client has a 30 second TTL while the current
 server has a TTL of 90 seconds.
 
-In peer-to-peer mode, every client just sends their heartbeat packet to every
+In peer-to-peer mode, every client just sends all their known heartbeats, including their own, to every
 other client in the list of IP addresses. Again, this is done every 0 to 30
 seconds. After 30 seconds of not receiving a packet from another client the
 given client is considered dead.
